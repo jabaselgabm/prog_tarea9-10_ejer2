@@ -43,7 +43,7 @@ public class Principal {
 			listaIphone.add(iphone);
 
 			// Empezamos la lectura del siguiente objeto.
-			nombreModelo = Leer.pedirCadena("Introduce el modelo: ");
+			nombreModelo = Leer.pedirCadena("Siguiente unidad. Introduce el modelo: ");
 		}
 	}
 
@@ -56,6 +56,7 @@ public class Principal {
 		for (Iphone iphone : listaIphone) {
 			System.out.println(iphone);
 		}
+		System.out.println("Ya no hay más Iphones");
 	}
 
 	
@@ -79,6 +80,7 @@ public class Principal {
 			System.out.println(ex.getMessage());
 		} finally {
 			if (oos != null) {
+				System.out.println("Fichero grabado con exito. Cerrando ...");
 				oos.close();
 			}
 		}
@@ -90,8 +92,9 @@ public class Principal {
 	 * @param fichero es el nombre del archivo a leer
 	 * @return el ArrayList con el contenido de los objetos
 	 * @throws ClassNotFoundException
+	 * @throws IOException 
 	 */
-	static ArrayList<Iphone> leerFicheroListaIphone(String fichero) throws ClassNotFoundException {
+	static ArrayList<Iphone> leerFicheroListaIphone(String fichero) throws ClassNotFoundException, IOException {
 		ArrayList<Iphone> listaIphone = new ArrayList<Iphone>();
 
 		ObjectInputStream ois = null;
@@ -109,6 +112,11 @@ public class Principal {
 			System.out.println("Lectura completa");
 		} catch (IOException ex) {
 			System.out.println(ex.getMessage());
+		} finally {
+			if (ois != null) {
+				System.out.println("Cerrando ...");
+				ois.close();
+			}
 		}
 
 		return listaIphone;
