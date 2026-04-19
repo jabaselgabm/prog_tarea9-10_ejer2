@@ -43,7 +43,7 @@ public class Principal {
 			listaIphone.add(iphone);
 
 			// Empezamos la lectura del siguiente objeto.
-			nombreModelo = Leer.pedirCadena("Siguiente unidad. Introduce el modelo: ");
+			nombreModelo = Leer.pedirCadena("Siguiente unidad. noiphone para terminar. \nIntroduce el modelo: ");
 		}
 	}
 
